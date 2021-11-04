@@ -1,0 +1,48 @@
+Transformaciones en 3D
+La representación de las transformaciones en tres dimensiones es una generalización de la de dos dimensiones.
+
+Los puntos se representan en coordenadas homogeneas como cuartetos y las matrices de transformación son de 4x4.
+
+Usaremos el sistema de coordenadas tridimensional de mano derecha, como se muestra en la figura.
+
+http://galia.fc.uaslp.mx/~medellin/Applets/Trans3D/transf7.gif
+
+Las transformaciones se clasifican de la siguiente manera:
+
+-->Rígidas - Mantianen ángulos y longitudes. Consisten de traslaciones y rotaciones solamente.
+	
+-->Afines - Conservan solo el paralelismo de líneas. Secuencias de rotaciones, traslaciones y escalamientos.
+	
+-->No lineales - Deforman los objetos. El valor de dos coordenadas se calcula en función de la tercera. Se pueden usar expresiones lineales, cuadráticas, etc. Pueden modificar la topoloía del objeto
+
+Traslación
+Mueve el objeto a una nueva posición. La representación matricial es la siguiente:
+
+http://galia.fc.uaslp.mx/~medellin/Applets/Trans3D/transf8.gif
+
+http://galia.fc.uaslp.mx/~medellin/Applets/Trans3D/transf9.gif
+
+Escalamiento
+El escalamiento c ambia el tamaño del objeto y al mismo tiempo desplaza el objeto a una nueva posición.
+
+http://galia.fc.uaslp.mx/~medellin/Applets/Trans3D/transf10.gif
+
+http://galia.fc.uaslp.mx/~medellin/Applets/Trans3D/transf11.gif
+
+Rotación
+La roación en tres dimensiones puede definirse alrededor de cualquier recta en el espacio. Existen tres rotaciones elementales que se definen alrededor de los ejes coordenados. Las matrices correspondientes son las siguientes.
+
+http://galia.fc.uaslp.mx/~medellin/Applets/Trans3D/transf12.gif
+
+Una vez explicado los movimientos que se pueden hacer en la 3 dimension procederemos a explicar en el programa que en este caso es un cubo de color creado 
+
+
+
+
+
+
+
+
+
+
+
