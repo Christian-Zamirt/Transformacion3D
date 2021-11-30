@@ -1,4 +1,4 @@
-Transformaciones en 3D
+## Transformaciones en 3D
 La representación de las transformaciones en tres dimensiones es una generalización de la de dos dimensiones.
 
 Los puntos se representan en coordenadas homogeneas como cuartetos y las matrices de transformación son de 4x4.
@@ -34,6 +34,7 @@ La roación en tres dimensiones puede definirse alrededor de cualquier recta en 
 ![transf12](https://user-images.githubusercontent.com/72089660/143965215-5ebc1345-1b7a-462f-bcf0-abb2edcd2113.gif)
 
 Una vez explicado los movimientos que se pueden hacer en la 3 dimension procederemos a explicar en el programa que en este caso es un cubo de color creado 
+##Aplicadas en java
 
 librerias utilizadas en el programa
 
