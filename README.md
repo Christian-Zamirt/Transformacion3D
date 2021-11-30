@@ -67,6 +67,10 @@ en esta parte se ven los cambios de la profundidad o bien el escalonamiento en e
 
 ![resul2](https://user-images.githubusercontent.com/72089660/143996572-110be9cd-ad91-4fbf-afda-f5502823bd71.PNG)
 
+![q](https://user-images.githubusercontent.com/72089660/143997666-9116d338-adb2-4f5c-b4b4-ac65df8680c0.PNG)
+
+![w](https://user-images.githubusercontent.com/72089660/143997799-503acbc9-6663-4a18-9e69-4713ce9cc7a5.PNG)
+
 en esta parte podemos ver la traslacion del objeto por los ejes x y y
 
 ![resul2](https://user-images.githubusercontent.com/72089660/143996986-6aa110aa-63fd-44f4-ae25-4bf514ca7ff8.PNG)
