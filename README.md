@@ -1,85 +1,49 @@
-# Transformacion3D
+Transformaciones en 3D
+La representación de las transformaciones en tres dimensiones es una generalización de la de dos dimensiones.
+
+Los puntos se representan en coordenadas homogeneas como cuartetos y las matrices de transformación son de 4x4.
+
+Usaremos el sistema de coordenadas tridimensional de mano derecha, como se muestra en la figura.
+
+![transf7](https://user-images.githubusercontent.com/72089660/143964846-ceb837f0-f0b5-4080-a64a-2bc78a067674.gif)
+
+Las transformaciones se clasifican de la siguiente manera:
+
+-->Rígidas - Mantianen ángulos y longitudes. Consisten de traslaciones y rotaciones solamente.
+	
+-->Afines - Conservan solo el paralelismo de líneas. Secuencias de rotaciones, traslaciones y escalamientos.
+	
+-->No lineales - Deforman los objetos. El valor de dos coordenadas se calcula en función de la tercera. Se pueden usar expresiones lineales, cuadráticas, etc. Pueden modificar la topoloía del objeto
+
+Traslación
+Mueve el objeto a una nueva posición. La representación matricial es la siguiente:
+
+![transf8](https://user-images.githubusercontent.com/72089660/143965055-88afe0fd-8202-463d-b388-4eac0c86aa92.gif)
+
+![transf9](https://user-images.githubusercontent.com/72089660/143965063-4a041e6f-bb54-400a-a1ab-4bf255de6b9d.gif)
+
+Escalamiento
+El escalamiento c ambia el tamaño del objeto y al mismo tiempo desplaza el objeto a una nueva posición.
+
+![transf10](https://user-images.githubusercontent.com/72089660/143965098-b3f0a744-31df-4ea6-908b-758d464db027.gif)
+![transf11](https://user-images.githubusercontent.com/72089660/143965110-e35b2dad-f7f9-4a48-8ef3-1e9cf7e7ce02.gif)
+
+Rotación
+La roación en tres dimensiones puede definirse alrededor de cualquier recta en el espacio. Existen tres rotaciones elementales que se definen alrededor de los ejes coordenados. Las matrices correspondientes son las siguientes.
+
+![transf12](https://user-images.githubusercontent.com/72089660/143965215-5ebc1345-1b7a-462f-bcf0-abb2edcd2113.gif)
+
+Una vez explicado los movimientos que se pueden hacer en la 3 dimension procederemos a explicar en el programa que en este caso es un cubo de color creado 
+
+librerias utilizadas en el programa
+
+![1](https://user-images.githubusercontent.com/72089660/143966224-3f04f7cb-19dc-4244-831c-77ba2584f2ff.PNG)
+
+Se crearon las siguientes clases , DOnde la clase principal es llamada escalonamientoC donde este esta extendido a traves de las siguientes funciones
+
+![3](https://user-images.githubusercontent.com/72089660/143966340-f3ccdc37-8881-4a17-94bc-425bc2a477d9.PNG)
 
 
-package EscalonamientoC;
 
-import com.sun.j3d.utils.geometry.ColorCube;
-import com.sun.j3d.utils.universe.SimpleUniverse;
-import java.awt.BorderLayout;
-import java.awt.GraphicsConfiguration;
-import javax.media.j3d.Alpha;
-import javax.media.j3d.BoundingSphere;
-import javax.media.j3d.BranchGroup;
-import javax.media.j3d.Canvas3D;
-import javax.media.j3d.RotationInterpolator;
-import javax.media.j3d.Transform3D;
-import javax.media.j3d.TransformGroup;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.vecmath.Vector3f;
 
-public class EscalonamientoC extends JPanel{
 
-     public EscalonamientoC(){
-        GraphicsConfiguration config = SimpleUniverse.getPreferredConfiguration();
-        Canvas3D canvas3D = new Canvas3D(config);
-        
-        setLayout(new BorderLayout());
-        add(canvas3D);
-        
-        SimpleUniverse universo = new SimpleUniverse(canvas3D);
-        //universo.getViewingPlatform().setNominalViewingTransform();
-        //en esta parte es donde se puede modificar la vista escalonada del cubo y tambien trasladarlo a lo largo del plano
-        Vector3f posicionVista = new Vector3f();
-        posicionVista.z =5f;
-        posicionVista.y =0f;
-        posicionVista.x =0f;
-        
-        //traslación
-        Transform3D transformVista = new Transform3D();
-        transformVista.setTranslation(posicionVista);
-        
-        //rotación
-        Transform3D rotacion = new Transform3D();
-        rotacion.rotX(Math.toRadians(-45));
-        rotacion.mul(transformVista);
-        
-        universo.getViewingPlatform().getViewPlatformTransform().setTransform(rotacion);
-        universo.getViewingPlatform().getViewPlatformTransform().getTransform(transformVista);
-        
-        BranchGroup escena = crearGrafoEscena();
-        escena.compile();
-        
-        universo.addBranchGraph(escena);
-    }
-    public BranchGroup crearGrafoEscena(){
-        BranchGroup objetoRaiz = new BranchGroup();
-        
-        TransformGroup objetoGiro = new TransformGroup();
-        objetoGiro.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-        objetoRaiz.addChild(objetoGiro);
-        
-        
-        ColorCube cubo = new ColorCube(0.2f);
-        objetoGiro.addChild(cubo);
-        
-        Alpha rotacionAlpha = new Alpha(-1,4000);
-        RotationInterpolator rotacion = new RotationInterpolator(rotacionAlpha,objetoGiro);
-        rotacion.setSchedulingBounds(new BoundingSphere());
-        
-        objetoRaiz.addChild(rotacion);
-        
-        return objetoRaiz;
-    }
-    public static void main(String[] args){
-        System.setProperty("sun.awt.noerasebackground", "true");
-        JFrame ventana = new JFrame("TransformGroup Java3D");
-        EscalonamientoC panel = new EscalonamientoC();
-        ventana.add(panel);
-        ventana.setSize(700,700);
-        ventana.setVisible(true);
-        ventana.setLocationRelativeTo(null);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-    
-}
